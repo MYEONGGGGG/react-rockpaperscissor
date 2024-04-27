@@ -17,7 +17,14 @@ export default class AppClass extends Component {
     increase = () => {
         this.setState({
             counter2: this.state.counter2 + 1,
-            value: this.state.value+1
+            value: this.state.value + 1
+        })
+    };
+
+    decrease = () => {
+        this.setState({
+            counter2: this.state.counter2 - 1,
+            value: this.state.value - 1
         })
     };
 
@@ -25,10 +32,11 @@ export default class AppClass extends Component {
         return (
             <div>
                 <h2>AppClass</h2>
+                state: {this.state.counter2}
+                {this.state.value < 3 && <BoxClass num={this.state.value}/>}
                 <div className="main_class">
-                    state: {this.state.counter2}
-                    <button onClick={this.increase}>click!</button>
-                    <BoxClass num={this.state.value} />
+                    <button onClick={this.increase}>increase!</button>
+                    <button onClick={this.decrease}>decrease!</button>
                 </div>
             </div>
         );
